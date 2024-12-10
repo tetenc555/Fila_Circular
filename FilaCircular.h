@@ -10,7 +10,7 @@ class FilaCircular
         FilaCircular(int max);
         ~FilaCircular();
         int getInicio();
-        void enfileira(int n);
+        void enfileira(int val);
         int desenfileira();
         bool vazia();
 
@@ -20,7 +20,6 @@ class FilaCircular
         int fim;
         int n;
         int* vet;
-
         int inc(int ind);
 };
 

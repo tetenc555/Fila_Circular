@@ -7,6 +7,7 @@ FilaCircular::FilaCircular(int max)
 {
     max=max;
     inicio=0;
+    n==0;
     fim=0;
     vet=new int [max];
 }
@@ -26,14 +27,16 @@ int FilaCircular::getInicio()
     return vet[inicio];
 }
 
-void FilaCircular::enfileira(int n)
+void FilaCircular::enfileira(int val)
 {
-    if(fim == max)
+    if(n==max)
     {
         cout << "Erro maximo atingido.";
         return;
     }
-    vet[fim++]=n;
+    vet[fim]=val;
+    fim = inc(fim); //IMPORTANTE ! INCREMENTO CIRCULAR !!!!!
+    n++;
 }
 
 int FilaCircular::desenfileira()
@@ -43,11 +46,24 @@ int FilaCircular::desenfileira()
         cout<< "Sem itens na fila";
         return;
     }
-    return vet[inicio++];
+    int val=vet[inicio];
+    n--;
+    inicio=inc(inicio);
+    return val;
 }
 
 bool FilaCircular::vazia()
 {
-    return (inicio==fim);
+    return (n==0);
 }
 
+int FilaCircular::inc(int ind)
+{
+    if (ind < 0 || ind>=max)
+    {
+        cout << "Valor invalido.";
+        return NULL;
+    }
+    else
+        return (ind+1) % max;
+}
