@@ -18,7 +18,10 @@ class FilaCircular
         int max;
         int inicio;
         int fim;
+        int n;
         int* vet;
+
+        int inc(int ind);
 };
 
 #endif
